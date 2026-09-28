@@ -1,0 +1,78 @@
+print("===== LANCHONETE DE ITUMIRIM =====")
+print("1 - Cachorro Quente - R$ 10.00")
+print("2 - X-Burguer - R$ 15.00")
+print("3 - Batata Frita - R$ 12.00")
+print("4 - Refrigerante - R$ 5.00")
+print("5 - Suco - R$ 6.00")
+print("0 - Fechar pedido")
+
+cliente = input("Digite o seu nome por favor: ")
+
+soma_total = 0
+rodando = True
+
+while rodando:
+    cod = int(input("\nQual codigo voce quer pedir? (0 para sair): "))
+
+    if cod == 1:
+        q = int(input("Quantos voce quer? "))
+        soma_total = soma_total + (10.00 * q)
+        print("Item adicionado!")
+    elif cod == 2:
+        q = int(input("Quantos voce quer? "))
+        soma_total = soma_total + (15.00 * q)
+        print("Item adicionado!")
+    elif cod == 3:
+        q = int(input("Quantos voce quer? "))
+        soma_total = soma_total + (12.00 * q)
+        print("Item adicionado!")
+    elif cod == 4:
+        q = int(input("Quantos voce quer? "))
+        soma_total = soma_total + (5.00 * q)
+        print("Item adicionado!")
+    elif cod == 5:
+        q = int(input("Quantos voce quer? "))
+        soma_total = soma_total + (6.00 * q)
+        print("Item adicionado!")
+    elif cod == 0:
+        print("Fechando o pedido...")
+        rodando = False
+    else:
+        print("Codigo errado, tenta de novo ai.")
+
+if soma_total < 50:
+    desc = 0
+    porcentagem = 0
+elif soma_total >= 50 and soma_total < 100:
+    desc = soma_total * 0.05
+    porcentagem = 5
+else:
+    desc = soma_total * 0.10
+    porcentagem = 10
+
+total_com_desconto = soma_total - desc
+
+print("\nFormas de pagamento:")
+print("1 - Dinheiro")
+print("2 - PIX")
+print("3 - Cartao")
+
+pag = int(input("Escolha a opcao de pagamento: "))
+
+if pag == 1:
+    forma_pag = "Dinheiro"
+elif pag == 2:
+    forma_pag = "PIX"
+elif pag == 3:
+    forma_pag = "Cartao"
+else:
+    forma_pag = "Outro"
+
+print("\n===== NOTA DO PEDIDO =====")
+print("Cliente:", cliente)
+print("Valor original: R$", soma_total)
+print("Desconto aplicado:", porcentagem, "%")
+print("Valor do desconto: R$", desc)
+print("Valor final: R$", total_com_desconto)
+print("Pagamento:", forma_pag)
+print("Obrigado pela preferencia!")
